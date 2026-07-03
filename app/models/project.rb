@@ -3,6 +3,6 @@ class Project < ApplicationRecord
   validates :name, presence: true
 
   def total_cost
-    time_entries.sum("(CAST((julianday(ended_at) - julianday(started_at)) * 24 AS REAL)) * hourly_rate_snapshot")
+    time_entries.sum("(CAST((julianday(ended_at) - julianday(started_at)) * 24 AS REAL)) * hourly_rate_snapshot").round(2)
   end
 end
