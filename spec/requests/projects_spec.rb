@@ -48,15 +48,15 @@ RSpec.describe "Projects", type: :request do
       create_entry.call(alexander, "2026-06-01")
 
       # Hans: rate 100 on 06.01-06.02 (2 days * 10h * 100 = 2000)
-      ["2026-06-01", "2026-06-02"].each { |d| create_entry.call(hans, d) }
+      [ "2026-06-01", "2026-06-02" ].each { |d| create_entry.call(hans, d) }
 
       # Hans: rate changes to 200, 06.03-06.05 (3 days * 10h * 200 = 6000)
       hans.update!(hourly_rate: 200)
-      ["2026-06-03", "2026-06-04", "2026-06-05"].each { |d| create_entry.call(hans, d) }
+      [ "2026-06-03", "2026-06-04", "2026-06-05" ].each { |d| create_entry.call(hans, d) }
 
       # Hans: rate changes to 300, 06.06-06.08 (3 days * 10h * 300 = 9000)
       hans.update!(hourly_rate: 300)
-      ["2026-06-06", "2026-06-07", "2026-06-08"].each { |d| create_entry.call(hans, d) }
+      [ "2026-06-06", "2026-06-07", "2026-06-08" ].each { |d| create_entry.call(hans, d) }
 
       get "/projects/#{project.id}", headers: { "X-Employee-Id" => alexander.id }
       json = JSON.parse(response.body)

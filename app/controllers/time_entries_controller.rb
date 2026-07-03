@@ -14,6 +14,6 @@ class TimeEntriesController < ApplicationController
   private
 
   def time_entry_params
-    params.expect(time_entry: [:project_id, :started_at, :ended_at])
+    params.expect(time_entry: [ :project_id, :started_at, :ended_at ])
   end
 end
