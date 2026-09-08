@@ -48,7 +48,7 @@ end
 
   TimeEntry.create!(
     employee: alexander,
-    project: it_project,
+    project: pv_project,
     started_at: date.strftime("%Y-%m-%dT09:00:00"),
     ended_at: date.strftime("%Y-%m-%dT17:00:00"),
     hourly_rate_snapshot: rate_for_month.call(date.month)

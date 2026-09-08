@@ -2,6 +2,7 @@ class TimeEntry < ApplicationRecord
   belongs_to :employee
   belongs_to :project
 
+  # wenn leer
   validates :started_at, :ended_at, presence: true
   validate :ended_after_started
   validate :not_in_the_future

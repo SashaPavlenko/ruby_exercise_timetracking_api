@@ -29,7 +29,7 @@ RSpec.describe TimeEntry, type: :model do
     it "is invalid without an employee" do
     entry = TimeEntry.new(project: project, started_at: "2026-01-15T09:00:00",
       ended_at: "2026-01-15T11:00:00", hourly_rate_snapshot: 50)
-    expect(entry).not_to be_valid
+    expect(entry).to be_invalid
   end
 
   it "is invalid without a project" do
